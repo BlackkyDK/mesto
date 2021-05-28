@@ -11,83 +11,82 @@
 <body class="root">
     <div class="container">
         <header class="header">
-            <img class="header__logo" src="./images/Logo.svg" alt="Место">
-            <div class="header__line">
+            <a href="#" class="header__logo"><img src="./images/Logo.svg" alt="Место"></a>
+    </div>
+    </header>
+    <main class="main">
+        <section class="profile">
+            <img class="profile__avatar" src="./images/avatar.png" alt="Аватар">
+            <div class="profile__biography">
+                <div class="profile__info">
+                    <h1 class="profile__name" id="profile__name">Жак-Ив Кусто</h1>
+                    <p class="profile__profession" id="profile__profession">Исследователь океана</p>
+                </div>
+                <button type="button" class="profile__edit-button" aria-label="редактировать профиль"></button>
             </div>
-        </header>
-        <main class="main">
-            <section class="profile">
-                <img class="profile__avatar" src="./images/avatar.png" alt="Аватар">
-                <div class="profile__biography">
-                    <div class="profile__info">
-                        <h1 class="profile__name" id="profile__name">Жак-Ив Кусто</h1>
-                        <p class="profile__profession" id="profile__profession">Исследователь океана</p>
-                    </div>
-                    <button type="button" class="profile__edit-button" aria-label="редактировать профиль"></button>
-                </div>
-                <button type="button" class="profile__add-button" aria-label="добавить"></button>
-            </section>
-            <section class="elements">
-                <div class="element">
-                    <img class="element__image" src="./images/Samara.png" alt="Самара">
-                    <div class="element__location">
-                        <h2 class="element__title ">Самара</h2>
-                        <button type="button" class="element__like-button" aria-label="Лайк"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Chelyabinsk.png" alt="Челябинск">
-                    <div class="element__location">
-                        <h2 class="element__title ">Челябинск</h2>
-                        <button type="button" class="element__like-button" aria-label="Лайк"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Sankt-Petersburg.png" alt="Санкт-Петербург">
-                    <div class="element__location">
-                        <h2 class="element__title ">Санкт-Петербург</h2>
-                        <button type="button" class="element__like-button" aria-label="Лайк"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Sochi.png" alt="Сочи">
-                    <div class="element__location">
-                        <h2 class="element__title ">Сочи</h2>
-                        <button type="button" class="element__like-button" aria-label="Лайк"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Vladikavkaz.png" alt="Владикавказ">
-                    <div class="element__location">
-                        <h2 class="element__title ">Владикавказ</h2>
-                        <button type="button" class="element__like-button" aria-label="Лайк"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Yekaterinburg.png" alt="Екатеринбург">
-                    <div class="element__location">
-                        <h2 class="element__title ">Екатеринбург</h2>
-                        <button type="button" class="element__like-button" aria-label="Лайк"></button>
-                    </div>
-                </div>
-            </section>
-            <article class="popup" id="popup">
-                <div class="popup__container">
-                    <button type="button" class="popup__close-button" aria-label="Закрыть окно"></button>
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="popup__form" name="profile">
-                        <input class="popup__input" name="name" type="text" id="popup__name" placeholder="Имя">
-                        <input class="popup__input" name="profession" type="text" id="popup__profession" placeholder="Профессия">
-                        <button type="submit" class="popup__save-button" aria-label="Сохранить">Сохранить</button>
-                    </form>
+            <button type="button" class="profile__add-button" aria-label="добавить"></button>
+        </section>
+        <section class="cards">
+            <article class="card">
+                <img class="card__image" src="./images/Samara.png" alt="Самара">
+                <div class="card__location">
+                    <h2 class="card__title">Самара</h2>
+                    <button type="button" class="card__like-button" aria-label="Лайк"></button>
                 </div>
             </article>
-        </main>
-        <footer class="footer ">
-            <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
-        </footer>
+            <article class="card">
+                <img class="card__image" src="./images/Chelyabinsk.png" alt="Челябинск">
+                <div class="card__location">
+                    <h2 class="card__title">Челябинск</h2>
+                    <button type="button" class="card__like-button" aria-label="Лайк"></button>
+                </div>
+            </article>
+            <article class="card">
+                <img class="card__image" src="./images/Sankt-Petersburg.png" alt="Санкт-Петербург">
+                <div class="card__location">
+                    <h2 class="card__title">Санкт-Петербург</h2>
+                    <button type="button" class="card__like-button" aria-label="Лайк"></button>
+                </div>
+            </article>
+            <article class="card">
+                <img class="card__image" src="./images/Sochi.png" alt="Сочи">
+                <div class="card__location">
+                    <h2 class="card__title">Сочи</h2>
+                    <button type="button" class="card__like-button" aria-label="Лайк"></button>
+                </div>
+            </article>
+            <article class="card">
+                <img class="card__image" src="./images/Vladikavkaz.png" alt="Владикавказ">
+                <div class="card__location">
+                    <h2 class="card__title">Владикавказ</h2>
+                    <button type="button" class="card__like-button" aria-label="Лайк"></button>
+                </div>
+            </article>
+            <article class="card">
+                <img class="card__image" src="./images/Yekaterinburg.png" alt="Екатеринбург">
+                <div class="card__location">
+                    <h2 class="card__title">Екатеринбург</h2>
+                    <button type="button" class="card__like-button" aria-label="Лайк"></button>
+                </div>
+            </article>
+        </section>
+        <article class="popup" id="popup">
+            <div class="popup__container">
+                <button type="button" class="popup__close-button" aria-label="Закрыть окно"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="popup__form" action="#" id="name-profession" name="profile">
+                    <input class="popup__input" name="name" type="text " id="popup__name" placeholder="Имя">
+                    <input class="popup__input" name="profession" type="text " id="popup__profession" placeholder="Профессия">
+                    <button type="submit " class="popup__save-button " aria-label="Сохранить ">Сохранить</button>
+                </form>
+            </div>
+        </article>
+    </main>
+    <footer class="footer ">
+        <p class="footer__copyright ">&copy; 2021 Mesto Russia</p>
+    </footer>
     </div>
-    <script src="./scripts/main.js"></script>
+    <script src="./scripts/main.js "></script>
 </body>
 
 </html>
