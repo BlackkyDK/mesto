@@ -3,14 +3,12 @@
     position: relative;
     background: #fff;
     width: 358px;
-    height: 262px;
     padding: 34px 36px;
 }
 
 @media screen and (max-width: 900px) {
     .popup__container {
         width: 238px;
-        height: 272px;
         padding: 25px 22px;
     }
 }
