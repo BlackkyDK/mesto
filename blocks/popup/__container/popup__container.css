@@ -3,7 +3,7 @@
     position: relative;
     background: #fff;
     width: 358px;
-    padding: 34px 36px;
+    padding: 34px 36px 37px 36px;
 }
 
 @media screen and (max-width: 900px) {
