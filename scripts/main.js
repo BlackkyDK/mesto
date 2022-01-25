@@ -62,29 +62,33 @@ const list = document.querySelector(".cards");
 const cardTemplate = document.querySelector(".card_template").content;
 
 //toggle
-function toogleModal(modal) {
+function tooglePopup(modal) {
     modal.classList.toggle("popup_active");
 }
 
-editPopupButton.addEventListener("click", () => toogleModal(editModal));
-closeEditModalButton.addEventListener("click", () => toogleModal(editModal));
+editPopupButton.addEventListener("click", () => tooglePopup(editModal));
+closeEditModalButton.addEventListener("click", () => tooglePopup(editModal));
 
-addCardButton.addEventListener("click", () => toogleModal(addModal));
-closeAddModalButton.addEventListener("click", () => toogleModal(addModal));
+addCardButton.addEventListener("click", () => tooglePopup(addModal));
+closeAddModalButton.addEventListener("click", () => tooglePopup(addModal));
 
-closePhotoModalButton.addEventListener("click", () => toogleModal(photoModal));
+closePhotoModalButton.addEventListener("click", () => tooglePopup(photoModal));
 
 //добавление карточки
 addForm.addEventListener("submit", (event) => {
     event.preventDefault();
+    const locationNameValue = inputLocationName.value;
+    const locationLinkValue = inputLocationLink.value;
+    const card = {
+        name: locationNameValue,
+        link: locationLinkValue,
+    }
 
-    createCard({
-
-        name: inputLocationName.value,
-        link: inputLocationLink.value,
-    })
-
-    toogleModal(addModal);
+    inputLocationName.value = "";
+    inputLocationLink.value = "";
+    
+    renderCard(card);
+    tooglePopup(addModal);
 })
 
 editForm.addEventListener("submit", (event) => {
@@ -93,7 +97,7 @@ editForm.addEventListener("submit", (event) => {
     profileName.textContent = inputProfileName.value,
     profileProfession.textContent = inputProfileProfession.value,
 
-    toogleModal(editModal);
+    tooglePopup(editModal);
 })
 
 function createCard(cardData) {
@@ -105,6 +109,7 @@ function createCard(cardData) {
 
     cardTitle.textContent = cardData.name;
     cardImage.src = cardData.link;
+    cardImage.alt = cardData.name;
 
     likeButton.addEventListener("click", function(event) {
         event.target.classList.toggle("card__like-button_active");
@@ -116,11 +121,16 @@ function createCard(cardData) {
 
     cardImage.addEventListener('click', () => {
         popupImage.src = cardData.link;
+        popupImage.alt = cardData.name;
         popupTitleImage.textContent = cardData.name;
-        toogleModal(photoModal);
+        tooglePopup(photoModal);
     })
-
-    list.prepend(cardElement);
+    return cardElement;
 }
 
-initialCards.forEach(createCard);
+function renderCard(cardData) {
+    const card = createCard(cardData);
+   list.prepend(card);
+}
+
+initialCards.forEach(renderCard);
