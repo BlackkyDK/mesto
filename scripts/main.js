@@ -66,7 +66,12 @@ function tooglePopup(modal) {
     modal.classList.toggle("popup_active");
 }
 
-editPopupButton.addEventListener("click", () => tooglePopup(editModal));
+editPopupButton.addEventListener("click", () => {
+    inputProfileName.value = profileName.textContent  
+    inputProfileProfession.value = profileProfession.textContent
+    tooglePopup(editModal)}
+);
+
 closeEditModalButton.addEventListener("click", () => tooglePopup(editModal));
 
 addCardButton.addEventListener("click", () => tooglePopup(addModal));
