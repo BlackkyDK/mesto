@@ -12,6 +12,7 @@ const photoPopup = document.querySelector(".popup_type_image");
 
 //кнопки
 const savePopupButton = document.querySelector(".popup__save-button");
+const savePopupLocButton = document.querySelector(".popup__save-button_location");
 const editPopupButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
 
@@ -62,11 +63,8 @@ editPopupButton.addEventListener("click", () => {
 
 closeEditButton.addEventListener("click", () => closePopup(editPopup));
 
-addCardButton.addEventListener("click", () => {
-    openPopup(addPopup);
-});
+addCardButton.addEventListener("click", () => openPopup(addPopup));
 
-//добавление карточки
 addPopup.addEventListener("submit", (event) => {
     event.preventDefault();
     
@@ -79,6 +77,9 @@ addPopup.addEventListener("submit", (event) => {
      
     renderCard(card);
     closePopup(addPopup);
+  
+    savePopupLocButton.setAttribute("disabled", true);
+    savePopupLocButton.classList.add("popup__save-button_disabled");
 
     addFormPopup.reset();
 });
@@ -91,6 +92,7 @@ editPopup.addEventListener("submit", (event) => {
     profileName.textContent = inputProfileName.value,
     profileProfession.textContent = inputProfileProfession.value,
     closePopup(editPopup);
+    
 });
 
 //карточки template
