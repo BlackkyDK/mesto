@@ -1,5 +1,5 @@
 const popups = document.querySelectorAll(".popup");
-const addFormPopup = document.querySelector(".popup__form");
+
 const profileName = document.querySelector(".profile__name");
 const profileProfession = document.querySelector(".profile__profession");
 const popupImage = document.querySelector(".popup__image");
@@ -7,6 +7,7 @@ const popupTitleImage = document.querySelector(".popup__title-image");
 
 const editPopup = document.querySelector(".popup_type_edit");
 const addPopup = document.querySelector(".popup_type_new-card");
+const addFormPopup = addPopup.querySelector(".popup__form");
 const photoPopup = document.querySelector(".popup_type_image");
 
 //кнопки
@@ -61,23 +62,25 @@ editPopupButton.addEventListener("click", () => {
 
 closeEditButton.addEventListener("click", () => closePopup(editPopup));
 
-addCardButton.addEventListener("click", () => openPopup(addPopup));
+addCardButton.addEventListener("click", () => {
+    openPopup(addPopup);
+});
 
 //добавление карточки
 addPopup.addEventListener("submit", (event) => {
     event.preventDefault();
+    
     const locationNameValue = inputLocationName.value;
     const locationLinkValue = inputLocationLink.value;
     const card = {
         name: locationNameValue,
         link: locationLinkValue,     
     }
-
-    savePopupButton.setAttribute("disabled", true);
-    savePopupButton.classList.add("popup__save-button_disabled");
-    addFormPopup.reset();
+     
     renderCard(card);
     closePopup(addPopup);
+
+    addFormPopup.reset();
 });
 
 closeAddButton.addEventListener("click", () => closePopup(addPopup));
@@ -88,7 +91,6 @@ editPopup.addEventListener("submit", (event) => {
     profileName.textContent = inputProfileName.value,
     profileProfession.textContent = inputProfileProfession.value,
     closePopup(editPopup);
-    
 });
 
 //карточки template
