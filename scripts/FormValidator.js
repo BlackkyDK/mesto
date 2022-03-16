@@ -48,6 +48,13 @@ export class FormValidator {
         this._buttonElement.disabled = false;
     }
 
+    resetValidation() {
+        this._toggleButton();
+        this._inputList.forEach((inputElement) => {
+        this._hideError(inputElement)
+        });
+    }
+
     _toggleButton = () => { 
         if (this._isFormValid()) {
             this._disableButton();            
@@ -57,6 +64,7 @@ export class FormValidator {
     }
 
     _setEventListeners() {
+        this._toggleButton();
         this._inputList.forEach ((inputElement) => {
             inputElement.addEventListener("input", () => {
                 this._validateInput(inputElement);
@@ -72,4 +80,3 @@ export class FormValidator {
         this._setEventListeners();
         }
     }
-

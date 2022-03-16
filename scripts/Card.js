@@ -43,12 +43,11 @@ export class Card {
     createCard = () => {
         this._element = this._getTemplate();
         this._element.querySelector(".card__title").textContent = this._name;
-        this._element.querySelector(".card__image").src = this._link;
-        this._element.querySelector(".card__image").alt = this._name;
+        this._cardImage = this._element.querySelector(".card__image");
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
         this._setEventListeners();
 
         return this._element;
     }
 }
-
-
