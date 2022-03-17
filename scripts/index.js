@@ -30,15 +30,12 @@ const inputList = document.querySelector(".cards");
 const cardTemplateSelector = ".card_template";
 
 const editFormValidator = new FormValidator(validationConfig, editPopup);
-editFormValidator.resetValidation();
 editFormValidator.enableValidation();
 
 const addCardFormValidator = new FormValidator(validationConfig, addFormPopup);
-addCardFormValidator.resetValidation();
 addCardFormValidator.enableValidation();
 
 export function openPopup(popup) {
-    addCardFormValidator.resetValidation(); 
     popup.classList.add("popup_active");
     document.addEventListener("keydown", closeEsc);
 }
@@ -64,11 +61,15 @@ popups.forEach((popup) => {
 
 editPopupButton.addEventListener("click", () => {
     openPopup(editPopup);
+    editFormValidator.resetValidation();
     inputProfileName.value = profileName.textContent;
     inputProfileProfession.value = profileProfession.textContent;
 });
 
-addCardButton.addEventListener("click", () => openPopup(addPopup));
+addCardButton.addEventListener("click", () => {
+    openPopup(addPopup);
+    addCardFormValidator.resetValidation();
+})
 
 addPopup.addEventListener("submit", (event) => {
     event.preventDefault();

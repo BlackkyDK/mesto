@@ -35,7 +35,7 @@ export class Card {
         this._element.querySelector(".card__delete-button").addEventListener("click", (event) => {
             this._deletePhoto(event);
         });
-        this._element.querySelector(".card__image").addEventListener("click", () => {
+        this._cardImage.addEventListener("click", () => {
             this._photoPopup();
         });
     }
