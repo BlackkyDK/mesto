@@ -5,6 +5,7 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
+import '../pages/index.css';
 
 const editPopup = document.querySelector(".popup_type_edit");
 const addPopup = document.querySelector(".popup_type_new-card");
