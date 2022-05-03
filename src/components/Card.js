@@ -17,6 +17,7 @@ export class Card {
 
     _deletePhoto(event) {
         event.target.closest(".card").remove();
+        this._element = null;
     }
 
     _setEventListeners() {
