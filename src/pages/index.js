@@ -5,7 +5,6 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
-import '../pages/index.css';
 
 const editPopup = document.querySelector(".popup_type_edit");
 const addPopup = document.querySelector(".popup_type_new-card");
@@ -18,7 +17,6 @@ const addCardButton = document.querySelector(".profile__add-button");
 const inputProfileName = document.querySelector(".popup__input_profile_name");
 const inputProfileProfession = document.querySelector(".popup__input_profile_profession");
 
-const inputList = document.querySelector(".cards");
 const cardTemplateSelector = ".card_template";
 
 const editFormValidator = new FormValidator(validationConfig, editPopup);
@@ -28,11 +26,11 @@ const addCardFormValidator = new FormValidator(validationConfig, addFormPopup);
 addCardFormValidator.enableValidation();
 
 editPopupButton.addEventListener("click", () => {
-    editProfilePopup.open();
     editFormValidator.resetValidation();
     const { name, profession } = userInfo.getUserInfo();
     inputProfileName.value = name
     inputProfileProfession.value = profession;
+    editProfilePopup.open();
 });
 
 addCardButton.addEventListener("click", () => {
@@ -61,16 +59,14 @@ function createCard(data) {
     const card = new Card(data, cardTemplateSelector, () => {
         imagePopup.open(data.name, data.link)
     });
-    const cardElement = card.createCard();
-    return cardElement;
+    
+    const cardElement = card.createCard(); 
+    return cardElement; 
 }
 
-function renderCard(data) {
-    const card = createCard(data);
-    inputList.prepend(card);
-}
+const section = new Section({ items: initialCards, renderer: data => {section.addItem(createCard(data))} }, ".cards");
+section.renderItems();
 
-const section = new Section({ items: initialCards, renderer: renderCard }, ".cards");
 const imagePopup = new PopupWithImage(".popup_type_image");
 const editProfilePopup = new PopupWithForm(".popup_type_edit", handleProfileSubmit);
 const addCardPopup = new PopupWithForm(".popup_type_new-card", handleCardSubmit);
@@ -78,7 +74,5 @@ const addCardPopup = new PopupWithForm(".popup_type_new-card", handleCardSubmit)
 imagePopup.setEventListeners();
 editProfilePopup.setEventListeners();
 addCardPopup.setEventListeners();
-
-section.renderItems();
 
 const userInfo = new UserInfo({ nameSelector: ".profile__name", professionSelector: ".profile__profession" });
