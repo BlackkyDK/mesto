@@ -5,6 +5,7 @@
         margin: 0 auto;
         max-width: 1280px;
         min-width: 160px;
+        min-height: 100vh;
         text-rendering: optimizeLegibility;
         color: #FFFFFF;
       }
