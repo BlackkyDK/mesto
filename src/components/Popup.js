@@ -14,8 +14,8 @@ export class Popup {
         document.removeEventListener("keydown", this._handleEscClose);
     }
 
-    _handleEscClose(evt) {
-        if (evt.code === "Escape") {
+    _handleEscClose(event) {
+        if (event.code === "Escape") {
             this.close()
         }
     }
@@ -23,8 +23,8 @@ export class Popup {
     setEventListeners() {
         const closeButton = this._popup.querySelector(".popup__close-button")
 
-        this._popup.addEventListener("click", (e) => {
-            if (!e.target.closest(".popup__container") || e.target === closeButton) {
+        this._popup.addEventListener("click", (event) => {
+            if (!event.target.closest(".popup__container") || event.target === closeButton) {
                 this.close()
             }
         })
