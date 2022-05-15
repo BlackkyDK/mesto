@@ -9,6 +9,7 @@
     margin-top: 15px;
     cursor: pointer;
     margin-left: 18px;
+    opacity: 1;
 }
 
 .profile__avatar-button:hover {
@@ -17,5 +18,5 @@
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.3);
     background-size: 26px 26px;
-    opacity: .6;
+    opacity: 0.6;
 }
