@@ -10,13 +10,13 @@
     cursor: pointer;
     margin-left: 18px;
     opacity: 1;
+    background-color: #000;
 }
 
 .profile__avatar-button:hover {
     background-image: url(../../../images/profile.svg);
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.3);
     background-size: 26px 26px;
     opacity: 0.6;
 }
